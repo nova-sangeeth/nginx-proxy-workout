@@ -1,15 +1,16 @@
-FROM --platform=arm64 python:3.9.0-slim-buster
+FROM --platform=amd64 python:3.9.0-slim-buster
 
 
 WORKDIR /app
 
-COPY ./requirements.txt /app/requirements.txt
-
 RUN apt-get update \
     && apt-get install gcc -y \
-    && apt-get clean
+    && apt-get clean \
+    && pip install --no-cache-dir --upgrade pip
 
-RUN pip install -r /app/requirements.txt \
+COPY ./requirements.txt /requirements.txt
+
+RUN pip install -r /requirements.txt \
     && rm -rf /root/.cache/pip
 
 COPY . /app/

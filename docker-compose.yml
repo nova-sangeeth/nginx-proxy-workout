@@ -11,10 +11,30 @@ services:
   #     - ./data:/data
   #     - ./letsencrypt:/etc/letsencrypt
   nginx:
-    dockerfile: ./nginx.dockerfile
-    restart: unless-stopped
+    build:
+      context: ./nginx
+      dockerfile: nginx.dockerfile
     ports:
       - '80:80'
       - '81:81'
       - '443:443'
+
+  fastapi-backend:
+    build: 
+      context: ./fastapi-backend
+      dockerfile: fastapi.dockerfile
+    command: uvicorn app:app  --reload --host 0.0.0.0 --port 8000
     volumes:
+      - ./fastapi-backend/:/app/
+    ports:
+      - 8001:8000
+
+  flask-app:
+    build: 
+      context: ./flask-app
+      dockerfile: flask.dockerfile
+    command: flask run --host=0.0.0.0 --port=5000
+    volumes:
+      - ./flask-app/:/app/
+    ports:
+      - 5001:5000
