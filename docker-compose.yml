@@ -48,3 +48,13 @@ services:
       - ./express-api/:/app/
     ports:
       - 3001:3000
+
+  jupyterlab:
+    build: 
+      context: ./jupyter-lab
+      dockerfile: jupyter.dockerfile
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./data:/opt/app/data
+    entrypoint: sh -c 'jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --notebook-dir=/opt/app/data --allow-root'
