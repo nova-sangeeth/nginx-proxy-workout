@@ -58,15 +58,15 @@ http:
         hostsProxyHeaders: ["X-CSRFToken"]
 
   services:
-    django:
+    fastapi-backend:
       loadBalancer:
         servers:
-          - url: http://django:5000
+          - url: http://fastapi-backend:8001
 
-    flower:
+    flask-api:
       loadBalancer:
         servers:
-          - url: http://flower:5555
+          - url: http://flask-api:5001
 
 providers:
   # https://docs.traefik.io/master/providers/file/

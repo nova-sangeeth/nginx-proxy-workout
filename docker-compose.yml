@@ -20,7 +20,7 @@ services:
       - '443:443'
 
   fastapi-backend:
-    build: 
+    build:
       context: ./fastapi-backend
       dockerfile: fastapi.dockerfile
     command: uvicorn app:app  --reload --host 0.0.0.0 --port 8000
@@ -30,7 +30,7 @@ services:
       - 8001:8000
 
   flask-app:
-    build: 
+    build:
       context: ./flask-app
       dockerfile: flask.dockerfile
     command: flask run --host=0.0.0.0 --port=5000
@@ -38,7 +38,7 @@ services:
       - ./flask-app/:/app/
     ports:
       - 5001:5000
-    
+
   express-api:
     build:
       context: ./express-api
@@ -50,7 +50,7 @@ services:
       - 3001:3000
 
   jupyterlab:
-    build: 
+    build:
       context: ./jupyter-lab
       dockerfile: jupyter.dockerfile
     ports:
@@ -58,3 +58,20 @@ services:
     volumes:
       - ./data:/opt/app/data
     entrypoint: sh -c 'jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --notebook-dir=/opt/app/data --allow-root'
+
+#     traefik:
+#       build:
+#         context: ./traefik
+#         dockerfile: traefik.Dockerfile
+#       depends_on:
+#         - django
+#       volumes:
+#         - production_traefik:/etc/traefik/acme:z
+#       ports:
+#         - "80:80"
+#         - "443:443"
+#         - "5555:5555"
+
+
+# volumes:
+#   production_traefik: {}
