@@ -1,37 +1,14 @@
-# Urls to access services.
+# Nginx and Traefik with docker-compose routing Workout.
 
-- fastapi: http://localhost/fastapi/api/v1
+## Access the services using Nginx's Routing.
 
-#
-
-- flask: http://localhost/flask-app
-
-#
-
-- Express: http://localhost/express-app
+- `FastAPI`: http://localhost/fastapi/api/v1
+- `Flask`: http://localhost/flask-app
+- `Express`: http://localhost/express-app
 
 ## Access the services using Traefik's Routing.
 
-#
-
-#### FastAPI
-
-- http://fastapi.localhost
-
-#
-
-#### Flask api
-
-- http://flask.localhost
-
-#
-
-#### Express-API
-
-- http://express.localhost
-
-#
-
-#### Jupyterlab
-
-- http://jupyterlab.localhost
+- `FastAPI` : http://fastapi.localhost
+- `Flask` : http://flask.localhost
+- `Express` : http://express.localhost
+- `JupyterLab`: http://jupyterlab.localhost
