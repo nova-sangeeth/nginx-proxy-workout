@@ -1,75 +1,81 @@
-log:
-  level: INFO
-
-entryPoints:
-  web:
-    # http
-    address: ":80"
-    http:
-      # https://docs.traefik.io/routing/entrypoints/#entrypoint
-      redirections:
-        entryPoint:
-          to: web-secure
-
-  web-secure:
-    # https
-    address: ":443"
-
-  flower:
-    address: ":5555"
-
-certificatesResolvers:
-  letsencrypt:
-    # https://docs.traefik.io/master/https/acme/#lets-encrypt
-    acme:
-      email: "nova@example.com"
-      storage: /etc/traefik/acme/acme.json
-      # https://docs.traefik.io/master/https/acme/#httpchallenge
-      httpChallenge:
-        entryPoint: web
-
-http:
-  routers:
-    web-secure-router:
-      rule: "Host(`example.com`) || Host(`www.example.com`)"
-      entryPoints:
-        - web-secure
-      middlewares:
-        - csrf
-      service: django
-      tls:
-        # https://docs.traefik.io/master/routing/routers/#certresolver
-        certResolver: letsencrypt
-
-    flower-secure-router:
-      rule: "Host(`example.com`)"
-      entryPoints:
-        - flower
-      service: flower
-      tls:
-        # https://docs.traefik.io/master/routing/routers/#certresolver
-        certResolver: letsencrypt
-
-  middlewares:
-    csrf:
-      # https://docs.traefik.io/master/middlewares/headers/#hostsproxyheaders
-      # https://docs.djangoproject.com/en/dev/ref/csrf/#ajax
-      headers:
-        hostsProxyHeaders: ["X-CSRFToken"]
-
-  services:
-    fastapi-backend:
-      loadBalancer:
-        servers:
-          - url: http://fastapi-backend:8001
-
-    flask-api:
-      loadBalancer:
-        servers:
-          - url: http://flask-api:5001
-
 providers:
   # https://docs.traefik.io/master/providers/file/
   file:
     filename: /etc/traefik/traefik.yml
     watch: true
+
+entryPoints:
+  web:
+    address: ":80"
+
+http:
+  routers:
+    fastapi-router:
+      rule: "Host(`fastapi.localhost`)"
+      entryPoints:
+        - web
+      service: fastapi-backend
+
+    express-router:
+      rule: "Host(`express.localhost`)"
+      entryPoints:
+        - web
+      service: express-api
+
+    flask-router:
+      rule: "Host(`flask.localhost`)"
+      entryPoints:
+        - web
+      service: flask-app
+
+    jupyterlab-router:
+      rule: "Host(`jupyterlab.localhost`)"
+      entryPoints:
+        - web
+      service: jupyterlab
+
+  services:
+    fastapi-backend:
+      loadBalancer:
+        servers:
+          - url: http://fastapi-backend:8000
+    express-api:
+      loadBalancer:
+        servers:
+          - url: http://express-api:3000
+    flask-app:
+      loadBalancer:
+        servers:
+          - url: http://flask-app:5000
+    jupyterlab:
+      loadBalancer:
+        servers:
+          - url: http://jupyterlab:8888
+
+log:
+  level: DEBUG
+  filePath: "/logs/log-file.log"
+  format: json
+
+accessLog:
+  filePath: "/logs/access.log"
+  bufferingSize: 100
+  format: json
+  fields:
+    defaultMode: keep
+    names:
+      StartUTC: keep
+      StartLocal: keep
+    headers:
+      defaultMode: keep
+      names:
+        User-Agent: keep
+        Authorization: keep
+        Content-Type: keep
+        RequestAddr: keep
+        RequestHost: keep
+        RequestPort: keep
+        RequestMethod: keep
+        RequestPath: keep
+        RequestProtocol: keep
+        RequestScheme: keep
