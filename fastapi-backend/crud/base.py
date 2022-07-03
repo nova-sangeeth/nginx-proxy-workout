@@ -1,5 +1,5 @@
 Store = [
-        {
+    {
         "id": "1",
         "name": "Store 1",
         "description": "Store 1 description",
@@ -9,3 +9,7 @@ Store = [
         "zipcode": "Store 1 zipcode",
     }
 ]
+
+
+def create():
+    return {"message": "Item Created"}
