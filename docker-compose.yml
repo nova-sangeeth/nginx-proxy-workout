@@ -10,14 +10,15 @@ services:
   #   volumes:
   #     - ./data:/data
   #     - ./letsencrypt:/etc/letsencrypt
-  nginx:
-    build:
-      context: ./nginx
-      dockerfile: nginx.dockerfile
-    ports:
-      - '80:80'
-      - '81:81'
-      - '443:443'
+
+  # nginx:
+  #   build:
+  #     context: ./nginx
+  #     dockerfile: nginx.dockerfile
+  #   ports:
+  #     - '80:80'
+  #     - '81:81'
+  #     - '443:443'
 
   fastapi-backend:
     build:
@@ -27,7 +28,7 @@ services:
     volumes:
       - ./fastapi-backend/:/app/
     ports:
-      - 8001:8000
+      - 8000:8000
 
   flask-app:
     build:
@@ -37,7 +38,7 @@ services:
     volumes:
       - ./flask-app/:/app/
     ports:
-      - 5001:5000
+      - 5000:5000
 
   express-api:
     build:
@@ -47,7 +48,7 @@ services:
     volumes:
       - ./express-api/:/app/
     ports:
-      - 3001:3000
+      - 3000:3000
 
   jupyterlab:
     build:
@@ -65,6 +66,7 @@ services:
       dockerfile: traefik.dockerfile
     volumes:
       - production_traefik:/etc/traefik/acme:z
+      - ./traefik/logs:/logs
     ports:
       - "80:80"
       - "443:443"
