@@ -14,4 +14,4 @@
 - `JupyterLab`: http://jupyterlab.localhost
 
 ## Access the database administration service ie pgadmin
- - `Pgadmin` : http://pgadmin.localhost
+ - `PGadmin` : http://pgadmin.localhost
