@@ -12,3 +12,6 @@
 - `Flask` : http://flask.localhost
 - `Express` : http://express.localhost
 - `JupyterLab`: http://jupyterlab.localhost
+
+## Access the database administration service ie pgadmin
+ - `Pgadmin` : http://pgadmin.localhost
