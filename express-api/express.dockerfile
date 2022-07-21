@@ -1,17 +1,17 @@
-FROM --platform=amd64 node:14-bullseye-slim 
+FROM --platform=amd64 node:16-bullseye-slim 
 
 WORKDIR /app
 
 RUN apt-get update \
-    && apt-get install gcc -y \
-    && apt-get clean 
+    && apt-get install gcc -y 
+# && apt-get clean 
 
-COPY package*.json ./
+COPY package.json .
 
-RUN npm install --force
+RUN npm install 
 
 COPY . .
 
-EXPOSE 5000
+EXPOSE 3000
 
 # CMD ["node", "index.js"]
