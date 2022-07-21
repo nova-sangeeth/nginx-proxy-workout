@@ -1,0 +1,7 @@
+FROM postgres:14
+
+
+
+ENV POSTGRES_PASSWORD password
+ENV POSTGRES_USER user
+ENV POSTGRES_DB database_name

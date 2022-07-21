@@ -19,6 +19,21 @@ services:
   #     - '80:80'
   #     - '81:81'
   #     - '443:443'
+  database:
+    build:
+      context: ./database
+      dockerfile: postgres.dockerfile
+    volumes:
+      - ./database/db_volume/:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    build:
+      context: ./database
+      dockerfile: pgadmin.dockerfile
+    ports:
+      - "5050:5050"
 
   fastapi-backend:
     build:
