@@ -20,9 +20,12 @@ services:
   #     - '81:81'
   #     - '443:443'
   database:
-    build:
-      context: ./database
-      dockerfile: postgres.dockerfile
+    image: postgres:14
+    restart: always
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=express-db
     volumes:
       - ./database/db_volume/:/var/lib/postgresql/data
     ports:
