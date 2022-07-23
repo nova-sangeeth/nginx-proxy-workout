@@ -28,12 +28,12 @@ services:
     ports:
       - "5432:5432"
 
-  pgadmin:
-    build:
-      context: ./database
-      dockerfile: pgadmin.dockerfile
-    ports:
-      - "5050:5050"
+  # pgadmin:
+  #   build:
+  #     context: ./database
+  #     dockerfile: pgadmin.dockerfile
+  #   ports:
+  #     - "5050:5050"
 
   fastapi-backend:
     build:
