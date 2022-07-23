@@ -62,7 +62,7 @@ services:
     build:
       context: ./express-api
       dockerfile: express.dockerfile
-    command: node index.js
+    command: npm start
     volumes:
       - ./express-api/:/app/
     ports:
