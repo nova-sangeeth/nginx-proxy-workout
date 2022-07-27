@@ -34,6 +34,12 @@ http:
         - web
       service: jupyterlab
 
+    react-vite-router:
+      rule: "Host(`react-vite.localhost`)"
+      entryPoints:
+        - web
+      service: react-vite
+
   services:
     fastapi-backend:
       loadBalancer:
@@ -51,6 +57,10 @@ http:
       loadBalancer:
         servers:
           - url: http://jupyterlab:8888
+    react-vite:
+      loadBalancer:
+        servers:
+          - url: http://react-vite:5173
 
 log:
   level: DEBUG
