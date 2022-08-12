@@ -7,6 +7,16 @@ providers:
 entryPoints:
   web:
     address: ":80"
+  web-secure:
+    address: ":443"
+
+certificateResolvers:
+  resolver-1:
+    acme:
+      email: tester@company.com
+    httpChallenge:
+            # used during the challenge
+            entryPoint: web
 
 api:
   dashboard: true
@@ -43,7 +53,6 @@ http:
       entryPoints:
         - web
       service: react-vite
-      
     dashboard:
       rule: Host(`traefik.localhost`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))
       service: api@internal
@@ -54,8 +63,8 @@ http:
     auth:
       basicAuth:
         users:
-          - "test:$apr1$H6uskkkW$IgXLP6ewTrSuBkTrqE8wj/" #username: test || password: test
-          - "test2:$apr1$d9hr9HBB$4HxwgUir3HP4EsggP/QNo0" #username: test2 || password: test2
+          - "test:$apr1$H6uskkkW$IgXLP6ewTrSuBkTrqE8wj/"
+          - "test2:$apr1$d9hr9HBB$4HxwgUir3HP4EsggP/QNo0"
 
           # https://dev.to/limal/basic-http-authentication-in-traefik-15l6
 
@@ -80,6 +89,7 @@ http:
       loadBalancer:
         servers:
           - url: http://react-vite:5173
+
 # log:
 #   level: DEBUG
 #   filePath: "/logs/log-file.log"
