@@ -12,14 +12,18 @@ def hello_world():
     message = "Fastapi is working."
     return {"message": message}
 
+
 @router.get("/store")
 def new_router():
     message = Store
     return message
 
+
 @router.get("/")
 def html_template(request: Request):
-    return HTMLResponse(f"""
+    return (
+        HTMLResponse(
+            f"""
     <html>
         <head>
             <title>Fastapi-server</title>
@@ -31,4 +35,6 @@ def html_template(request: Request):
             </center>
         </body>
     </html>
-    """) ,
+    """
+        ),
+    )
