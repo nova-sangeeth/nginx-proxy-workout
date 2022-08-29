@@ -42,7 +42,7 @@ services:
     build:
       context: ./fastapi-backend
       dockerfile: fastapi.dockerfile
-    command: uvicorn app:app  --reload --host 0.0.0.0 --port 8000
+    command: uvicorn app:app  --reload --host 0.0.0.0 --port 8000 --proxy-headers
     volumes:
       - ./fastapi-backend/:/app/
     ports:
