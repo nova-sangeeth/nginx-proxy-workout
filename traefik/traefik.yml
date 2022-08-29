@@ -38,11 +38,11 @@ http:
         - web
       service: jupyterlab
 
-    react-vite-router:
-      rule: "Host(`react-vite.localhost`)"
-      entryPoints:
-        - web
-      service: react-vite
+    # react-vite-router:
+    #   rule: "Host(`react-vite.localhost`)"
+    #   entryPoints:
+    #     - web
+    #   service: react-vite
       
     dashboard:
       rule: Host(`traefik.localhost`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))
@@ -76,10 +76,10 @@ http:
       loadBalancer:
         servers:
           - url: http://jupyterlab:8888
-    react-vite:
-      loadBalancer:
-        servers:
-          - url: http://react-vite:5173
+    # react-vite:
+    #   loadBalancer:
+    #     servers:
+    #       - url: http://react-vite:5173
 # log:
 #   level: DEBUG
 #   filePath: "/logs/log-file.log"
