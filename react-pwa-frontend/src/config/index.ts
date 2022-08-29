@@ -2,9 +2,9 @@ import isMobile from '@/utils/is-mobile';
 
 import type { Notifications } from './types';
 
-const title = 'React PWA';
+const title = "Nova's Protfolio";
 
-const email = 'auther-email@gmail.com';
+const email = 'novasangeeth@outlook.com';
 
 const repository = 'https://github.com/suren-atoyan/react-pwa';
 
