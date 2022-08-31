@@ -6,9 +6,9 @@ import { FullSizeCenteredFlexBox } from '@/components/styled';
 function Page2() {
   return (
     <>
-      <Meta title="page 2" />
+      <Meta title="Projects" />
       <FullSizeCenteredFlexBox>
-        <Typography variant="h3">Page 2</Typography>
+        <Typography variant="h3">Projects</Typography>
       </FullSizeCenteredFlexBox>
     </>
   );

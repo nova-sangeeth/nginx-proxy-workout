@@ -9,9 +9,9 @@ import { FullSizeCenteredFlexBox } from '@/components/styled';
 function Page4() {
   return (
     <>
-      <Meta title="page 4" />
+      <Meta title="Social" />
       <FullSizeCenteredFlexBox flexDirection="column">
-        <Typography variant="h3">Page 4</Typography>
+        <Typography variant="h3">Social</Typography>
         <Button
           to={`/${Math.random().toString()}`}
           component={Link}
