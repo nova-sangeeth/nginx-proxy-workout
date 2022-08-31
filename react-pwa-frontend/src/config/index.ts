@@ -6,7 +6,7 @@ const title = "Nova's Protfolio";
 
 const email = 'novasangeeth@outlook.com';
 
-const repository = 'https://github.com/suren-atoyan/react-pwa';
+const repository = 'https://github.com/nova-sangeeth';
 
 const messages = {
   app: {
