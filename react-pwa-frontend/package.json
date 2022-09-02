@@ -16,7 +16,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "https-preview": "serve dist"
+    "https-preview": "serve dist",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
@@ -49,6 +50,7 @@
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",
     "https-localhost": "^4.7.1",
+    "husky": "^8.0.1",
     "lint-staged": "^12.4.2",
     "prettier": "2.6.2",
     "typescript": "^4.7.2",
@@ -64,9 +66,9 @@
     ]
   },
   "author": {
-    "name": "Suren Atoyan",
-    "email": "contact@surenatoyan.com",
-    "url": "http://surenatoyan.com/"
+    "name": "Nova Sangeeth",
+    "email": "novasangeeth@outlook.com",
+    "url": "http://example.com/"
   },
   "keywords": [
     "react",
