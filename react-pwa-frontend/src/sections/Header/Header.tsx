@@ -47,6 +47,10 @@ function Header() {
     });
   }
 
+  function redirectToHomePage() {
+    window.location.href = "/"
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar color="transparent" elevation={1} position="static">
@@ -62,7 +66,7 @@ function Header() {
             >
               <MenuIcon />
             </IconButton>
-            <Button onClick={showNotification} color="info">
+            <Button onClick={redirectToHomePage} color="info">
               {title}
             </Button>
           </FlexBox>
