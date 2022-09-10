@@ -1,18 +1,19 @@
-import Box from '@mui/material/Box';
-import { styled } from '@mui/system';
+import Box from "@mui/material/Box";
+import { styled } from "@mui/system";
 
 const FlexBox = styled(Box)({
-  display: 'flex',
+  display: "flex",
 });
 
 const CenteredFlexBox = styled(FlexBox)({
-  justifyContent: 'center',
-  alignItems: 'center',
+  justifyContent: "center",
+  alignItems: "center",
 });
 
 const FullSizeCenteredFlexBox = styled(CenteredFlexBox)({
-  width: '100%',
-  height: '100%',
+  width: "100%",
+  height: "100%",
+  padding: "100px",
 });
 
 export { FlexBox, CenteredFlexBox, FullSizeCenteredFlexBox };

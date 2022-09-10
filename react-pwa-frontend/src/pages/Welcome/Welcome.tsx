@@ -1,3 +1,5 @@
+import GitHubCalendar from "react-github-calendar";
+
 import { Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 
@@ -23,13 +25,14 @@ function Welcome() {
               <h1>Hello There</h1>
             </Typography>
             <Typography>
-              <h1>I'm Nova Sangeeth</h1>
+              <h1>I am Nova Sangeeth</h1>
             </Typography>
             <Typography>
               <h4>I am a Full Stack Developer</h4>
             </Typography>
           </Grid>
         </Grid>
+        <GitHubCalendar username="nova-sangeeth" />
       </FullSizeCenteredFlexBox>
     </>
   );
