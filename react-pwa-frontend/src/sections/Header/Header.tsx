@@ -71,7 +71,7 @@ function Header() {
             </Button>
           </FlexBox>
           <FlexBox>
-            <FlexBox>
+            {/* <FlexBox>
               <Tooltip title="Hot keys" arrow>
                 <HotKeysButton
                   size="small"
@@ -82,7 +82,7 @@ function Header() {
                   alt + /
                 </HotKeysButton>
               </Tooltip>
-            </FlexBox>
+            </FlexBox> */}
             <Divider orientation="vertical" flexItem />
             <Tooltip title="GitHub" arrow>
               <IconButton color="info" size="large" component="a" href={repository} target="_blank">
