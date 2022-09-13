@@ -8,29 +8,33 @@ import Meta from "@/components/Meta";
 import { FullSizeCenteredFlexBox } from "@/components/styled";
 
 function Page2() {
+  const steps = [
+    {
+      label: "Position 1",
+      description: `content 1`,
+    },
+    {
+      label: "Position 2",
+      description: `content 2`,
+    },
+    {
+      label: "Position 3",
+      description: `content 3`,
+    },
+  ];
   return (
     <>
       <Meta title="Projects" />
       <FullSizeCenteredFlexBox>
-        <Typography variant="h5">Projects</Typography>
+        {/* <Typography variant="h5">Projects</Typography> */}
 
-        <Stepper  orientation="vertical">
-          <Step>
-            <StepLabel>Step 1</StepLabel>
-            <StepContent></StepContent>
-          </Step>
-          <Step>
-            <StepLabel>Step 2</StepLabel>
-            <StepContent></StepContent>
-          </Step>
-          <Step>
-            <StepLabel>Step 3</StepLabel>
-            <StepContent></StepContent>
-          </Step>
-          <Step>
-            <StepLabel>Step 4</StepLabel>
-            <StepContent></StepContent>
-          </Step>
+        <Stepper orientation="vertical">
+          {steps.map((step, index) => (
+            <Step key={step.label}>
+              <StepLabel>{step.label}</StepLabel>
+              <StepContent>{step.description}</StepContent>
+            </Step>
+          ))}
         </Stepper>
       </FullSizeCenteredFlexBox>
     </>
