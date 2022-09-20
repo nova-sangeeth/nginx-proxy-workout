@@ -7,22 +7,29 @@ import { Typography } from "@mui/material";
 import { FullSizeCenteredFlexBox } from "@/components/styled";
 
 // create a recoil state.
-const StatsState = atom<string>({
+const statState1 = atom<string>({
   key: "stat-item-1",
   default: "",
 });
 
+const statState2 = atom<string>({
+  key: "stat-item-2",
+  default: ""
+})
 const Stats = () => {
   // const [statItem1, setStatItem1] = useState<string>("");
   // const [statItem2, setStatItem2] = useState<string>("");
 
   // use recoil state management.
-  const [statItem1, setStatItem1] = useRecoilState(StatsState);
+  const [statItem1, setStatItem1] = useRecoilState(statState1);
+  const [statItem2, setStatItem2] = useRecoilState(statState2);
 
   const fetchStats = () => {
     const temp_values_1 = "updated state";
+    const temp_values_2 = "updated state data"
 
     setStatItem1(temp_values_1);
+    setStatItem2(temp_values_2);
   };
 
   useEffect(() => {
@@ -41,7 +48,7 @@ const Stats = () => {
         <Card sx={{ minWidth: 375, marginLeft: 3 }}>
           <CardContent>
             <Typography>Stat Card 2</Typography>
-            {/* <Typography>{statItem2}</Typography> */}
+            <Typography>{statItem2}</Typography>
           </CardContent>
         </Card>
       </FullSizeCenteredFlexBox>
