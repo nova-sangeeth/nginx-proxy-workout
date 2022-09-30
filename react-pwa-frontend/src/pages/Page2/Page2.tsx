@@ -1,3 +1,5 @@
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Step from "@mui/material/Step";
 import StepContent from "@mui/material/StepContent";
 import StepLabel from "@mui/material/StepLabel";
@@ -10,8 +12,8 @@ import { FullSizeCenteredFlexBox } from "@/components/styled";
 function Page2() {
   const steps = [
     {
-      label: "Position 1",
-      description: `content 1`,
+      label: "Project 1",
+      description: `This is a fake description of project completed...`,
     },
     {
       label: "Position 2",
@@ -32,7 +34,17 @@ function Page2() {
           {steps.map((step, index) => (
             <Step key={step.label}>
               <StepLabel>{step.label}</StepLabel>
-              <StepContent>{step.description}</StepContent>
+              <StepContent>
+                {step.description}
+                <Box sx={{ mb: 2 }}>
+                  <Button variant="contained" sx={{ mt: 1, mr: 1 }}>
+                    {index === steps.length - 1 ? "finish" : "continue"}
+                  </Button>
+                  <Button disabled={index === 0} sx={{ mt: 1, mr: 1 }}>
+                    Back
+                  </Button>
+                </Box>
+              </StepContent>
             </Step>
           ))}
         </Stepper>
