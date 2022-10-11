@@ -1,10 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
-import Meta from '@/components/Meta';
-import { FullSizeCenteredFlexBox } from '@/components/styled';
+import Meta from "@/components/Meta";
+import { FullSizeCenteredFlexBox } from "@/components/styled";
 
 function Page4() {
   return (
@@ -22,6 +24,8 @@ function Page4() {
         >
           Whant to check 404?
         </Button>
+        <LinkedInIcon />
+        <GitHubIcon />
       </FullSizeCenteredFlexBox>
     </>
   );
