@@ -12,7 +12,10 @@ const projectContent = [
     label: "QnA App",
     description: `QnA is a reddit clone which is used as a small scale amazon comments section.`,
   },
+  {
+    label: "Scrapy Scraper",
+    description: `Amazon review scraper which is used scrape the user details and rankings along with the reviews of a give product.`,
+  },
 ];
 
-
-export default projectContent
+export default projectContent;
