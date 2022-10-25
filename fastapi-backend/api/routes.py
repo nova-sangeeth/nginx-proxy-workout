@@ -15,8 +15,7 @@ def hello_world():
 
 @router.get("/store")
 def new_router():
-    message = Store
-    return message
+    return Store
 
 
 @router.get("/")
