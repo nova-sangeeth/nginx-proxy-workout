@@ -6,11 +6,10 @@ import Stack from "@mui/material/Stack";
 
 import Meta from "@/components/Meta";
 
-function Page1() {
+function TechSkills() {
   return (
     <>
       <Meta title="Tech Stack" />
-
       <Container disableGutters={true}>
         <h1>Tech Stack</h1>
         <h4>Languages</h4>
@@ -51,4 +50,4 @@ function Page1() {
   );
 }
 
-export default Page1;
+export default TechSkills;
