@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import Step from "@mui/material/Step";
 import StepContent from "@mui/material/StepContent";
@@ -33,12 +34,25 @@ function SkillStepper() {
         {projectContent.map((step, index) => (
           <Step key={step.label}>
             <StepLabel
-              optional={index === 2 ? <Typography variant="caption">Last step</Typography> : null}
+              optional={
+                index === projectContent.length ? (
+                  <Typography variant="caption">Last step</Typography>
+                ) : null
+              }
             >
               {step.label}
             </StepLabel>
             <StepContent>
               <Typography>{step.description}</Typography>
+              <Link
+                component={"button"}
+                variant={"body2"}
+                onClick={() => {
+                  window.location.href = step.project_source_url;
+                }}
+              >
+                View Source
+              </Link>
               <Box sx={{ mb: 2 }}>
                 <div>
                   <Button variant="contained" onClick={handleNext} sx={{ mt: 1, mr: 1 }}>
