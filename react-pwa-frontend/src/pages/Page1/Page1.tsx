@@ -25,6 +25,7 @@ function TechSkills() {
           <Chip label="FastAPI" />
           <Chip label="Django" />
           <Chip label="Flask" />
+          <Chip label="Pytest" />
           <Chip label="Express" />
           <Chip label="React" />
           <Chip label="Vue" />
@@ -42,8 +43,14 @@ function TechSkills() {
         <h4>Cloud Providers</h4>
         <Stack direction="row" spacing={1}>
           <Chip label="Azure" />
-          <Chip label="AWS" />
           <Chip label="DigitalOcean" />
+          <Chip label="AWS" />
+        </Stack>
+        <h4>Databases</h4>
+        <Stack direction="row" spacing={1}>
+          <Chip label="PostgreSQL"/>
+          <Chip label="MySQL"/>
+          <Chip label="Redis"/>
         </Stack>
       </Container>
     </>
