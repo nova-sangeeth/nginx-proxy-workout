@@ -98,6 +98,14 @@ services:
     ports:
       - "80:80"
       - "443:443"
-
+  redis:
+    image: redis:latest
+    container_name: my-redis-container
+    ports:
+      - "6379:6379"
+    volumes:
+      - "redis_volume:/data"
+    restart: always
 volumes:
   production_traefik: {}
+  redis_volume: {}
