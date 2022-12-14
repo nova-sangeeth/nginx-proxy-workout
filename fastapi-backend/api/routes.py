@@ -26,7 +26,7 @@ def html_template(request: Request):
     <html>
         <head>
             <title>Fastapi-server</title>
-        </head>
+        </head> 
         <body>
             <center>
                 <h1>Fastapi-server</h1>
