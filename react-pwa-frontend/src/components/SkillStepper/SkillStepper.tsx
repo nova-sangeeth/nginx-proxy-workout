@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import Step from "@mui/material/Step";
@@ -29,53 +30,55 @@ function SkillStepper() {
   };
 
   return (
-    <Box sx={{ maxWidth: 400 }}>
-      <Stepper activeStep={activeStep} orientation="vertical">
-        {projectContent.map((step, index) => (
-          <Step key={step.label}>
-            <StepLabel
-              optional={
-                index === projectContent.length ? (
-                  <Typography variant="caption">Last step</Typography>
-                ) : null
-              }
-            >
-              {step.label}
-            </StepLabel>
-            <StepContent>
-              <Typography>{step.description}</Typography>
-              <Link
-                component={"button"}
-                variant={"body2"}
-                onClick={() => {
-                  window.location.href = step.project_source_url;
-                }}
+    <Container disableGutters={false}>
+      <Box sx={{ maxWidth: 400 }}>
+        <Stepper activeStep={activeStep} orientation="vertical">
+          {projectContent.map((step, index) => (
+            <Step key={step.label}>
+              <StepLabel
+                optional={
+                  index === projectContent.length ? (
+                    <Typography variant="caption">Last step</Typography>
+                  ) : null
+                }
               >
-                View Source
-              </Link>
-              <Box sx={{ mb: 2 }}>
-                <div>
-                  <Button variant="contained" onClick={handleNext} sx={{ mt: 1, mr: 1 }}>
-                    {index === projectContent.length - 1 ? "Finish" : "Next"}
-                  </Button>
-                  <Button disabled={index === 0} onClick={handleBack} sx={{ mt: 1, mr: 1 }}>
-                    Back
-                  </Button>
-                </div>
-              </Box>
-            </StepContent>
-          </Step>
-        ))}
-      </Stepper>
-      {activeStep === projectContent.length && (
-        <Paper square elevation={0} sx={{ p: 3 }}>
-          <Typography>All projectContent completed - you&apos;re finished</Typography>
-          <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
-            Reset
-          </Button>
-        </Paper>
-      )}
-    </Box>
+                {step.label}
+              </StepLabel>
+              <StepContent>
+                <Typography>{step.description}</Typography>
+                <Link
+                  component={"button"}
+                  variant={"body2"}
+                  onClick={() => {
+                    window.location.href = step.project_source_url;
+                  }}
+                >
+                  View Source
+                </Link>
+                <Box sx={{ mb: 2 }}>
+                  <div>
+                    <Button variant="contained" onClick={handleNext} sx={{ mt: 1, mr: 1 }}>
+                      {index === projectContent.length - 1 ? "Finish" : "Next"}
+                    </Button>
+                    <Button disabled={index === 0} onClick={handleBack} sx={{ mt: 1, mr: 1 }}>
+                      Back
+                    </Button>
+                  </div>
+                </Box>
+              </StepContent>
+            </Step>
+          ))}
+        </Stepper>
+        {activeStep === projectContent.length && (
+          <Paper square elevation={0} sx={{ p: 3 }}>
+            <Typography>All projectContent completed - you&apos;re finished</Typography>
+            <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
+              Reset
+            </Button>
+          </Paper>
+        )}
+      </Box>
+    </Container>
   );
 }
 
