@@ -1,10 +1,10 @@
-import GitHubCalendar from "react-github-calendar";
 import { Typewriter } from "react-simple-typewriter";
 import { animated, useSpring } from "react-spring";
 
 import { Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 
+import GithubActivityBar from "@/components/GithubActivityBar";
 import Meta from "@/components/Meta";
 import SkillStepper from "@/components/SkillStepper";
 import { FullSizeCenteredFlexBox } from "@/components/styled";
@@ -26,7 +26,8 @@ function Welcome() {
         </h1>
       </FullSizeCenteredFlexBox>
       <FullSizeCenteredFlexBox flexDirection={isPortrait ? "column" : "row"}>
-        <GitHubCalendar username="nova-sangeeth" />
+        {/* <GitHubCalendar username="nova-sangeeth" /> */}
+        <GithubActivityBar />
       </FullSizeCenteredFlexBox>
       <FullSizeCenteredFlexBox flexDirection={isPortrait ? "column" : "row"}>
         <SkillStepper />
