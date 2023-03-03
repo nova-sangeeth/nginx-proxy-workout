@@ -7,10 +7,6 @@
     "type": "git",
     "url": "https://github.com/suren-atoyan/react-pwa.git"
   },
-  "bugs": {
-    "url": "https://github.com/suren-atoyan/react-pwa/issues",
-    "email": "contact@surenatoyan.com"
-  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -74,7 +70,6 @@
   "keywords": [
     "react",
     "pwa",
-    "starter-kit",
     "vite"
   ]
 }
